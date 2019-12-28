@@ -4,11 +4,14 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
+
+import WelcomeScreen from './src/components/WelcomeScreen';
 import LoginScreen from './src/components/LoginScreen';
 import HomeScreen from './src/components/HomeScreen';
 import MapScreen from './src/components/MapScreen';
 import AboutScreen from './src/components/AboutScreen';
 import ProfileScreen from './src/components/ProfileScreen';
+
 
 class App extends Component {
   render() {
@@ -18,6 +21,9 @@ class App extends Component {
 
 const AppNavigator = createStackNavigator({
 
+  Welcome: {
+    screen: WelcomeScreen
+  },
   Login: {
     screen: LoginScreen
   },
