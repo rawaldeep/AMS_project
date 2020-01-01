@@ -16,6 +16,7 @@ export default class Welcomescreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#BCDEFD',
         alignItems: 'center',
         justifyContent: 'center'
     },

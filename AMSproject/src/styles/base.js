@@ -8,9 +8,9 @@ export const dimensions = {
 }
 
 export const colors = {
-    primary: '#262EEE',
-    secondary: '#EE2626',
-    tertiary: '#FFFFFF',
+    primary: '#FFC8AE',
+    secondary: '#BCDEFD',
+    tertiary: '#000000',
 }
 
 export const padding = {
@@ -25,4 +25,9 @@ export const fonts = {
     md: 18,
     lg: 30,
     primary: 'Roboto'
+}
+
+export const borders = {
+    primary: '2px solid #000000',
+    secondary: '0px'
 }

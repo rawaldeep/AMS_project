@@ -4,14 +4,12 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-
 import WelcomeScreen from './src/components/WelcomeScreen';
 import LoginScreen from './src/components/LoginScreen';
 import HomeScreen from './src/components/HomeScreen';
 import MapScreen from './src/components/MapScreen';
 import AboutScreen from './src/components/AboutScreen';
 import ProfileScreen from './src/components/ProfileScreen';
-
 
 class App extends Component {
   render() {
@@ -22,26 +20,45 @@ class App extends Component {
 const AppNavigator = createStackNavigator({
 
   Welcome: {
-    screen: WelcomeScreen
+    screen: WelcomeScreen,
+    navigationOptions: {
+      header: null,
+    }
   },
   Login: {
-    screen: LoginScreen
+    screen: LoginScreen,
+    navigationOptions: {
+      header: null,
+    }
   },
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null,
+    }
   },
   Map: {
-    screen: MapScreen
+    screen: MapScreen,
+    navigationOptions: {
+      header: null,
+    }
   },
   Profile: {
-    screen: ProfileScreen
+    screen: ProfileScreen,
+    navigationOptions: {
+      header: null,
+    }
   },
   About: {
-    screen: AboutScreen
-  }
+    screen: AboutScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
 }, {
     initialRouteName: 'Login'
-  });
+  },
+);
 
 const AppContainer = createAppContainer(AppNavigator);
 
@@ -49,7 +66,7 @@ const AppContainer = createAppContainer(AppNavigator);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgb(188,222,253)',
     alignItems: 'center',
     justifyContent: 'center',
   },
