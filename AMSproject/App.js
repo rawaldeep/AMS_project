@@ -11,6 +11,24 @@ import MapScreen from './src/components/MapScreen';
 import AboutScreen from './src/components/AboutScreen';
 import ProfileScreen from './src/components/ProfileScreen';
 
+//firebase
+import * as firebase from 'firebase';
+const firebaseConfig = {
+  apiKey: "AIzaSyAJM1dsmCOWdayRc4ohxQoNCkrlBhSECsg",
+  authDomain: "coffeeshops-database.firebaseapp.com",
+  databaseURL: "https://coffeeshops-database.firebaseio.com",
+  projectId: "coffeeshops-database",
+  storageBucket: "coffeeshops-database.appspot.com",
+  messagingSenderId: "430651409692",
+  appId: "1:430651409692:web:8c312867b62e60ddca26d9",
+  measurementId: "G-3K8HH1YBYF"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+//firebase
+
 class App extends Component {
   render() {
     return <AppContainer style={styles.container} />;

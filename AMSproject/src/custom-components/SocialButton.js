@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { Image } from 'react-native';
+
 
 const SocialButton = props => (
 	<ButtonContainer
+
+		// logica voor login komt hier. BV. onPress={this.loginWithFacebook}
 		onPress={onPress = () => {
 			alert('You are logged in!');
 		}}

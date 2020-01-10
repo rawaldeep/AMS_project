@@ -1,11 +1,13 @@
 //Login Screen
 
 import React, { Component } from 'react';
-import { Button, View, Text, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { colors, fonts, padding, borders, dimensions } from '../styles/base';
 import styled from 'styled-components';
 import SocialButton from '../custom-components/SocialButton';
 import Logo from '../custom-components/Logo';
+import FacebookIcon from '../custom-components/Facebook';
+import GmailIcon from '../custom-components/Gmail';
 
 export default class Loginscreen extends Component {
 
@@ -13,35 +15,23 @@ export default class Loginscreen extends Component {
         return (
             <Container>
                 <View style={styles.container}>
-                    <Logo ></Logo>
+                    <Logo />
                     <SocialButton
                         onPress={this.onPress}
-                        text="Sign Up"
+                        text="Continue with Google"
                         textColor={'#FFFFFF;'}
                         backgroundColor={colors.primary}
                         border={borders.secondary}
                         fontSize={fonts.lg} />
+                    <GmailIcon />
                     <SocialButton
                         onPress={this.onPress}
                         text="Continue with Facebook"
                         textColor={colors.tertiary}
                         backgroundColor={'transparent'}
                         border={borders.primary} />
+                    <FacebookIcon />
                 </View>
-                {/* <Logo></Logo>
-                <SocialButton
-                    onPress={this.onPress}
-                    text="Sign Up"
-                    textColor={'#FFFFFF;'}
-                    backgroundColor={colors.primary}
-                    border={borders.secondary}
-                    fontSize={fonts.lg} />
-                <SocialButton
-                    onPress={this.onPress}
-                    text="Continue with Facebook"
-                    textColor={colors.tertiary}
-                    backgroundColor={'transparent'}
-                    border={borders.primary} /> */}
             </Container>
         )
     }
