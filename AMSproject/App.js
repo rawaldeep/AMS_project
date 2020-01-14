@@ -10,6 +10,7 @@ import HomeScreen from './src/components/HomeScreen';
 import MapScreen from './src/components/MapScreen';
 import AboutScreen from './src/components/AboutScreen';
 import ProfileScreen from './src/components/ProfileScreen';
+import LoginScreenTest from './src/components/LoginscreenTest';
 
 //firebase
 import * as firebase from 'firebase';
@@ -25,7 +26,6 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 //firebase
 

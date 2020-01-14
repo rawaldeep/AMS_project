@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from 'react-native';
+
 
 
 const SocialButton = props => (
-	<ButtonContainer
 
+	<ButtonContainer
 		// logica voor login komt hier. BV. onPress={this.loginWithFacebook}
-		onPress={onPress = () => {
-			alert('You are logged in!');
-		}}
+		onPress={() => alert('You are logged in!')}
 		backgroundColor={props.backgroundColor}
 		border={props.border}
 	>
 		<ButtonText textColor={props.textColor}>{props.text}</ButtonText>
 	</ButtonContainer>
+
 );
 
 const ButtonContainer = styled.TouchableOpacity`

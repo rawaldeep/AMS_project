@@ -11,13 +11,26 @@ import GmailIcon from '../custom-components/Gmail';
 
 export default class Loginscreen extends Component {
 
+    // async loginWithFacebook() {
+
+    //     const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('480576342865028', { permissions: ['public_profile'] })
+
+    //     if (type == 'success') {
+
+    //         const credential = firebase.auth.FacebookAuthProvider.credential(token)
+
+    //         firebase.auth().signInWithCredential(credential).catch((error) => {
+    //             console.log(error)
+    //         })
+    //     }
+    // };
+
     render() {
         return (
             <Container>
                 <View style={styles.container}>
                     <Logo />
                     <SocialButton
-                        onPress={this.onPress}
                         text="Continue with Google"
                         textColor={'#FFFFFF;'}
                         backgroundColor={colors.primary}
@@ -25,7 +38,6 @@ export default class Loginscreen extends Component {
                         fontSize={fonts.lg} />
                     <GmailIcon />
                     <SocialButton
-                        onPress={this.onPress}
                         text="Continue with Facebook"
                         textColor={colors.tertiary}
                         backgroundColor={'transparent'}
