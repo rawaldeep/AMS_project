@@ -4,29 +4,20 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import WelcomeScreen from './src/components/WelcomeScreen';
-import LoginScreen from './src/components/LoginScreen';
-import HomeScreen from './src/components/HomeScreen';
-import MapScreen from './src/components/MapScreen';
-import AboutScreen from './src/components/AboutScreen';
-import ProfileScreen from './src/components/ProfileScreen';
-import LoginScreenTest from './src/components/LoginscreenTest';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import MapScreen from './src/screens/MapScreen';
+import AboutScreen from './src/screens/AboutScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import LoadingScreen from './src/screens/LoadingScreen';
+import LoginScreenTest from './src/screens/LoginScreenTest';
 
 //firebase
 import * as firebase from 'firebase';
-const firebaseConfig = {
-  apiKey: "AIzaSyAJM1dsmCOWdayRc4ohxQoNCkrlBhSECsg",
-  authDomain: "coffeeshops-database.firebaseapp.com",
-  databaseURL: "https://coffeeshops-database.firebaseio.com",
-  projectId: "coffeeshops-database",
-  storageBucket: "coffeeshops-database.appspot.com",
-  messagingSenderId: "430651409692",
-  appId: "1:430651409692:web:8c312867b62e60ddca26d9",
-  measurementId: "G-3K8HH1YBYF"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+import firebaseConfig from './src/database/config';
 
+firebase.initializeApp(firebaseConfig);
 //firebase
 
 class App extends Component {
@@ -45,6 +36,12 @@ const AppNavigator = createStackNavigator({
   },
   Login: {
     screen: LoginScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  Loading: {
+    screen: LoadingScreen,
     navigationOptions: {
       header: null,
     }
@@ -74,8 +71,8 @@ const AppNavigator = createStackNavigator({
     }
   },
 }, {
-    initialRouteName: 'Login'
-  },
+  initialRouteName: 'Login'
+},
 );
 
 const AppContainer = createAppContainer(AppNavigator);

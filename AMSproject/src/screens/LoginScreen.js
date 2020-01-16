@@ -11,20 +11,6 @@ import GmailIcon from '../custom-components/Gmail';
 
 export default class Loginscreen extends Component {
 
-    // async loginWithFacebook() {
-
-    //     const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('480576342865028', { permissions: ['public_profile'] })
-
-    //     if (type == 'success') {
-
-    //         const credential = firebase.auth.FacebookAuthProvider.credential(token)
-
-    //         firebase.auth().signInWithCredential(credential).catch((error) => {
-    //             console.log(error)
-    //         })
-    //     }
-    // };
-
     render() {
         return (
             <Container>

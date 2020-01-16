@@ -21,24 +21,6 @@ class Homescreen extends Component {
     }
 };
 
-// const TabNavigator = createBottomTabNavigator({
-//     Map: {
-//         screen: MapScreen
-//     },
-//     Profile: {
-//         screen: ProfileScreen
-//     },
-//     About: {
-//         screen: AboutScreen
-//     },
-// },
-//     {
-//         initialRouteName: 'Map',
-//         activeColor: '#f0edf6',
-//         inactiveColor: '#3e2465',
-//         barStyle: { backgroundColor: '#694fad' },
-//     });
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,

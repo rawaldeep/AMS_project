@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { Container, Button } from 'native-base';
+import * as Google from 'expo-google-app-auth';
 
-export default class LoginscreenTest extends Component {
+class LoginScreenTest extends Component {
+
+    signInWithGoogleAsync = async () => {
+        try {
+            const result = await Google.logInAsync({
+                iosClientId: '430651409692-fg9hb7lvuhp2e73dg1ami28g7mpgsh1n.apps.googleusercontent.com',
+                scopes: ['profile', 'email'],
+            });
+
+            if (result.type === 'success') {
+                this.props.navigation.navigate('Map');
+                return result.accessToken;
+            } else {
+                return { cancelled: true };
+            }
+        } catch (e) {
+            return { error: true };
+        }
+    };
+
     render() {
         return (
             <Container style={styles.container}>
                 <Image
                     width="1" height="1"
                     source={require('../assets/images/svg/logo/sustainLogo.png')} />
-                <Button style={styles.style}>
+                <Button onPress={this.signInWithGoogleAsync} style={styles.style}>
                     <Text style={styles.text}>
                         Continue with Facebook
                 </Text>
 
                 </Button>
-                <Button style={styles.style}>
+                {/* <Button style={styles.style}>
                     <Text style={styles.text}>
                         Continue with Google
                 </Text>
-                </Button>
+                </Button> */}
             </Container>
         )
     }
@@ -57,3 +77,5 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
+
+export default LoginScreenTest;
