@@ -4,19 +4,19 @@ import * as firebase from 'firebase';
 
 class LoadingScreen extends Component {
 
-    // componentDidMount() {
-    //     this.checkLogIn();
-    // }
+    componentDidMount() {
+        this.checkLogIn();
+    }
 
-    // checkLogIn = () => {
-    //     firebase.auth().onAuthStateChanged(user => {
-    //         if (user) {
-    //             this.props.navigation.navigate('Map')
-    //         } else {
-    //             this.props.navigation.navigate('Login')
-    //         }
-    //     })
-    // }
+    checkLogIn = () => {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.props.navigation.navigate('Map')
+            } else {
+                this.props.navigation.navigate('Login')
+            }
+        })
+    }
     render() {
         return (
             <View style={styles.container}>

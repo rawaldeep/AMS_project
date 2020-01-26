@@ -1,29 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as Google from 'expo-google-app-auth';
 
-const SocialButton = ({ navigate }, props) => (
+const SocialButton = props => (
 
 	<ButtonContainer
-		onPress={
-			signInWithGoogleAsync = async () => {
-				try {
-					const result = await Google.logInAsync({
-						iosClientId: '430651409692-fg9hb7lvuhp2e73dg1ami28g7mpgsh1n.apps.googleusercontent.com',
-						scopes: ['profile', 'email'],
-					});
-
-					if (result.type === 'success') {
-						navigate.navigation.navigate('Map');
-						return result.accessToken;
-					} else {
-						return { cancelled: true };
-					}
-				} catch (e) {
-					return { error: true };
-				}
-			}
-		}
+		onPress={props.onPress}
 		backgroundColor={props.backgroundColor}
 		border={props.border}
 	>

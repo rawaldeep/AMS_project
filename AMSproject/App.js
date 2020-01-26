@@ -15,8 +15,7 @@ import LoginScreenTest from './src/screens/LoginScreenTest';
 
 //firebase
 import * as firebase from 'firebase';
-import firebaseConfig from './src/database/config';
-
+import { firebaseConfig } from './src/database/config';
 firebase.initializeApp(firebaseConfig);
 //firebase
 

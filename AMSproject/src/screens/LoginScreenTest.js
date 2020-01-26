@@ -16,6 +16,7 @@ class LoginScreenTest extends Component {
                 this.props.navigation.navigate('Map');
                 return result.accessToken;
             } else {
+                this.props.navigation.navigate('Login')
                 return { cancelled: true };
             }
         } catch (e) {
@@ -29,17 +30,11 @@ class LoginScreenTest extends Component {
                 <Image
                     width="1" height="1"
                     source={require('../assets/images/svg/logo/sustainLogo.png')} />
-                <Button onPress={this.signInWithGoogleAsync} style={styles.style}>
+                <Button onPress={this.onPress.signInWithGoogleAsync} style={styles.style}>
                     <Text style={styles.text}>
                         Continue with Facebook
                 </Text>
-
                 </Button>
-                {/* <Button style={styles.style}>
-                    <Text style={styles.text}>
-                        Continue with Google
-                </Text>
-                </Button> */}
             </Container>
         )
     }
@@ -68,12 +63,8 @@ const styles = StyleSheet.create({
         borderRadius: 46,
         marginBottom: '7%',
         marginHorizontal: horizontalMargin,
-        position: 'absolute',
-        bottom: 100,
-
     },
     text: {
-        lineHeight: 43,
         color: 'white',
     },
 });
