@@ -15,10 +15,10 @@ export default class Loginscreen extends Component {
 
     isUserEqual = (googleUser, firebaseUser) => {
         if (firebaseUser) {
-            var providerData = firebaseUser.providerData;
-            for (var i = 0; i < providerData.length; i++) {
+            let providerData = firebaseUser.providerData;
+            for (let i = 0; i < providerData.length; i++) {
                 if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
-                    providerData[i].uid === googleUser.getBasicProfile().getId()) {
+                    providerData[i].uid === googleUser) {
                     // We don't need to reauth the Firebase connection.
                     return true;
                 }
@@ -29,12 +29,12 @@ export default class Loginscreen extends Component {
 
     onSignIn = googleUser => {
         console.log('Google Auth Response', googleUser);
-        var unsubscribe = firebase.auth().onAuthStateChanged(firebaseUser => {
+        let unsubscribe = firebase.auth().onAuthStateChanged(firebaseUser => {
             unsubscribe();
             // Check if we are already signed-in Firebase with the correct user.
             if (!this.isUserEqual(googleUser, firebaseUser)) {
                 // Build Firebase credential with the Google ID token.
-                var credential = firebase.auth.GoogleAuthProvider.credential(
+                let credential = firebase.auth.GoogleAuthProvider.credential(
                     // googleUser.getAuthResponse().id_token);
                     googleUser.idToken,
                     googleUser.accessToken
@@ -46,12 +46,13 @@ export default class Loginscreen extends Component {
                     })
                     .catch(error => {
                         // Handle Errors here.
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
+                        let errorCode = error.code;
+                        let errorMessage = error.message;
                         // The email of the user's account used.
-                        var email = error.email;
+                        let email = error.email;
                         // The firebase.auth.AuthCredential type that was used.
-                        var credential = error.credential;
+                        let credential = error.credential;
+                        console.log('Error:' + errorCode + "," + errorMessage + "," + email + "," + credential)
                         // ...
                     });
             } else {
@@ -68,6 +69,7 @@ export default class Loginscreen extends Component {
             });
             if (result.type === 'success') {
                 this.onSignIn(result);
+                this.props.navigation.navigate('Loading');
                 return result.accessToken;
             } else {
                 return { cancelled: true };
